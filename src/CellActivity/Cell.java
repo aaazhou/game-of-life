@@ -50,9 +50,57 @@ public class Cell {
 			br.close();
 		} catch(Exception e) {
 			e.printStackTrace();
-		} finally {
-			return flag;
 		}
+		
+		return flag;
+
+	}
+	
+	//获取周围细胞存活状态
+	public int getLifeAround(int i,int j) {
+		int res=0;
+		if(i<0||j<0|i>=10||j>=10)
+			return -1;
+		
+		int k=i;
+		
+		if(j-1>=0&&cellState[k][j-1]==1)
+		    res++;
+	
+	    if(cellState[k][j]==1)
+		    res++;
+	    
+	    if(j+1<10&&cellState[k][j+1]==1)
+	    	res++;
+		
+		if(i-1>=0) {
+			k=i-1;
+			
+		    if(j-1>=0&&cellState[k][j-1]==1)
+			    res++;
+		
+		    if(cellState[k][j]==1)
+			    res++;
+		    
+		    if(j+1<10&&cellState[k][j+1]==1)
+		    	res++;
+		}
+		
+		if(i+1<10) {
+			k=i+1;
+			
+		    if(j-1>=0&&cellState[k][j-1]==1)
+			    res++;
+		
+		    if(cellState[k][j]==1)
+			    res++;
+		    
+		    if(j+1<10&&cellState[k][j+1]==1)
+		    	res++;
+		}
+		
+		
+		return res;
 	}
 
 	public int[][] getCellState() {

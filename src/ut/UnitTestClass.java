@@ -28,7 +28,7 @@ public class UnitTestClass {
 
 	@Test
 	public void testGetCellSateFromFile() {
-		boolean flag=cell.getCellSateFromFile("CellState");
+		cell.getCellSateFromFile("CellState");
 		
 		int [][]a=cell.getCellState();
 		
@@ -38,7 +38,31 @@ public class UnitTestClass {
 			System.out.println("");
 		}
 		
+		boolean flag=compareCell(testCell,a);
+		assertEquals(true,flag);
 		
+		
+	}
+	
+	@Test
+	public void testGetLifeAround() {
+		cell.setCellState(testCell);
+		int a=cell.getLifeAround(1, 1);
+		
+		assertEquals(5,a);
+	}
+	
+	
+	
+	private boolean compareCell(int[][]testCell,int[][]a) {
+		for(int i=0;i<10;i++) {
+			for(int j=0;j<10;j++) {
+				if(testCell[i][j]!=a[i][j])
+					return false;
+			}
+		}
+		
+		return true;
 	}
 
 }
