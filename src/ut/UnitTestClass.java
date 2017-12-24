@@ -46,12 +46,28 @@ public class UnitTestClass {
 	
 	@Test
 	public void testGetLifeAround() {
-		cell.setCellState(testCell);
-		int a=cell.getLifeAround(1, 1);
+		cell.setCellState(testCell);   //Ö±½Ó¸³Öµ
+		int a=cell.getLifeAround(0, 9);
 		
-		assertEquals(5,a);
+		assertEquals(2,a);
 	}
 	
+	@Test
+	public void testChangeCellState() {
+		cell.setCellState(testCell);
+		cell.changeCellState();
+		
+		System.out.println("");
+
+		int [][]a=cell.getCellState();
+		for(int i=0;i<10;i++) {
+			for(int j=0;j<10;j++) 
+				System.out.print(a[i][j]+" ");
+			System.out.println("");
+		}
+		
+		
+	}
 	
 	
 	private boolean compareCell(int[][]testCell,int[][]a) {

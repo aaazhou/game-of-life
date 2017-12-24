@@ -67,8 +67,9 @@ public class Cell {
 		if(j-1>=0&&cellState[k][j-1]==1)
 		    res++;
 	
-	    if(cellState[k][j]==1)
-		    res++;
+		//细胞本身存活状态不计入
+//	    if(cellState[k][j]==1)
+//		    res++;
 	    
 	    if(j+1<10&&cellState[k][j+1]==1)
 	    	res++;
@@ -101,6 +102,21 @@ public class Cell {
 		
 		
 		return res;
+	}
+	
+	public void changeCellState() {
+		int lifeNumber=0;
+		for(int i=0;i<10;i++) {
+			for(int j=0;j<10;j++) {
+				lifeNumber=this.getLifeAround(i, j);
+				if(lifeNumber<2)
+					cellState[i][j]=0;
+				else if(lifeNumber>3)
+					cellState[i][j]=0;
+				else if(lifeNumber==3&&cellState[i][j]==0)
+					cellState[i][j]=1;
+			}
+		}
 	}
 
 	public int[][] getCellState() {
