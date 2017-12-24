@@ -3,9 +3,10 @@ package ut;
 import static org.junit.Assert.*;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
-import CellActivity.Cell;
+import CellActivity.*;
 
 public class UnitTestClass {
 	
@@ -25,7 +26,7 @@ public class UnitTestClass {
 	@Before
 	public void setUp() throws Exception {
 	}
-
+	//@Ignore
 	@Test
 	public void testGetCellSateFromFile() {
 		cell.getCellSateFromFile("CellState");
@@ -66,8 +67,9 @@ public class UnitTestClass {
 			System.out.println("");
 		}
 		
-		
 	}
+	
+
 	
 	
 	private boolean compareCell(int[][]testCell,int[][]a) {

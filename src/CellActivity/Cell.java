@@ -118,6 +118,19 @@ public class Cell {
 			}
 		}
 	}
+	
+	public void printCellState() {
+		for(int i=0;i<10;i++) {
+			for(int j=0;j<10;j++) {
+				if(cellState[i][j]==1)
+				    System.out.print("¡ö ");
+				if(cellState[i][j]==0)
+					System.out.print("¡õ ");
+                 
+			}
+			System.out.println("");
+		}
+	}
 
 	public int[][] getCellState() {
 		return cellState;
